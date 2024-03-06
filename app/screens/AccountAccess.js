@@ -32,7 +32,7 @@ export default function AccountAccess() {
         <AppText color='coral' style={{ marginBottom: 130 }}>
           Forgot passcode?
         </AppText>
-        <AppButton title='Login' />
+        <AppButton>Login</AppButton>
       </View>
     </View>
   )

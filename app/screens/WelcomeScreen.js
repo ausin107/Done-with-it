@@ -18,12 +18,9 @@ export default function WelcomeScreen() {
         <Image source={require('../assets/Welcome/Homepage_blur_1.png')} style={{ bottom: '50%' }} />
         <Image source={require('../assets/Welcome/Homepage_blur_2.png')} style={{ right: '50%', bottom: '45%' }} />
       </View>
-      <AppButton
-        title='Get Started'
-        color='coral'
-        bgColor='white'
-        style={{ bottom: '30%', marginHorizontal: 40, width: '80%' }}
-      />
+      <AppButton color='coral' bgColor='white' style={{ bottom: '30%', marginHorizontal: 40, width: '80%' }}>
+        Get Started
+      </AppButton>
     </View>
   )
 }
