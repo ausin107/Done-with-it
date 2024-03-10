@@ -3,15 +3,15 @@ import React from 'react'
 import { colors } from '../configs/colors'
 import AppText from './AppText'
 
-export default function ListItem() {
+export default function ListItem({ data, image }) {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require('../assets/Foods/Food_1.png')} />
+      <Image style={styles.image} source={image} />
       <AppText style={styles.title} fontSize={20}>
-        Veggie tomato mix
+        {data.name}
       </AppText>
       <AppText style={styles.subTitle} color='coral'>
-        N1,900
+        {data.price}
       </AppText>
     </View>
   )
@@ -26,10 +26,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
+    marginRight: 40,
+    marginTop: 40,
   },
   image: {
-    width: 250,
-    height: 250,
+    width: 300,
+    height: 300,
     position: 'absolute',
     top: -40,
   },
