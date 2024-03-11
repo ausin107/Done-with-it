@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 30,
     alignItems: 'center',
+    elevation: 3,
   },
   icon: {
     marginRight: 15,
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     fontSize: 18,
+    width: '80%',
     fontWeight: '600',
   },
 })

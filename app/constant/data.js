@@ -1,4 +1,4 @@
-export const foodData = [
+export const Foods = [
   {
     id: 1,
     name: 'Veggie tomato mix',
@@ -22,5 +22,27 @@ export const foodData = [
     name: 'Moi-moi and ekpa',
     price: 'N1,900',
     image: require('../assets/Foods/Food_4.png'),
+  },
+]
+export const Categories = [
+  {
+    id: '1',
+    title: 'Foods',
+  },
+  {
+    id: '2',
+    title: 'Drinks',
+  },
+  {
+    id: '3',
+    title: 'Snacks',
+  },
+  {
+    id: '4',
+    title: 'Sauce',
+  },
+  {
+    id: '5',
+    title: 'Cakes',
   },
 ]

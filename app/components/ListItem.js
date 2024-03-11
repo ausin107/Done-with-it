@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     marginRight: 40,
     marginTop: 40,
-    elevation: 5,
   },
   image: {
     width: 300,

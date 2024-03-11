@@ -1,37 +1,21 @@
 import React from 'react'
 import { StyleSheet, Text, View, FlatList, Dimensions, Image } from 'react-native'
-
+import Carousel from 'react-native-snap-carousel'
 import { Feather, FontAwesome, FontAwesome5, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
-import { colors } from '../configs/colors'
+
 import AppText from '../components/AppText'
 import SearchBar from '../components/SearchBar'
 import ListItem from '../components/ListItem'
-import Carousel from 'react-native-snap-carousel'
-import { foodData } from '../constant/data'
+import Screen from '../components/Screen'
+import { Foods, Categories } from '../constant/data'
+import { colors } from '../configs/colors'
 
 export default function Home() {
   const { width: screenWidth } = Dimensions.get('screen')
-  const test = [
-    {
-      id: '1',
-      title: 'Foods',
-    },
-    {
-      id: '2',
-      title: 'Drinks',
-    },
-    {
-      id: '3',
-      title: 'Snacks',
-    },
-    {
-      id: '4',
-      title: 'Sauce',
-    },
-  ]
+
   return (
-    <View style={styles.container}>
-      <View style={styles.topContainer}>
+    <Screen style={styles.container}>
+      <View style={styles.pdHorizontal}>
         <View style={styles.header}>
           <Feather name='menu' size={30} color='black' />
           <Feather name='shopping-cart' size={30} color='#aaaaaa' />
@@ -41,44 +25,33 @@ export default function Home() {
       </View>
       <View>
         <FlatList
-          data={test}
+          data={Categories}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <View
-              style={[
-                item.id == '1' ? { borderBottomWidth: 3, borderColor: colors.coral, paddingBottom: 10 } : {},
-                { paddingHorizontal: 10, marginHorizontal: 10 },
-              ]}>
+            <View style={[item.id == '1' && styles.activeCategory, styles.categoryItem]}>
               <AppText color={item.id == '1' ? 'coral' : '#9A9A9D'} fontWeight='400'>
                 {item.title}
               </AppText>
             </View>
           )}
           horizontal
-          style={{ marginLeft: 50, marginBottom: 20 }}
+          style={styles.category}
+          showsHorizontalScrollIndicator={false}
         />
       </View>
-      <View style={[styles.topContainer, { display: 'flex', alignItems: 'flex-end' }]}>
+      <View style={[styles.pdHorizontal, styles.carouselText]}>
         <AppText color='coral' fontSize={15} style={{ fontWeight: '400' }}>
           see more
         </AppText>
       </View>
       <Carousel
-        style={{ paddingHorizontal: 80 }}
-        data={foodData}
+        data={Foods}
         renderItem={({ item }) => <ListItem data={item} />}
+        keyExtractor={(item) => item.id.toString()}
         sliderWidth={screenWidth}
         itemWidth={screenWidth * 0.65}
       />
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          paddingHorizontal: 40,
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          top: -20,
-        }}>
+      <View style={styles.navbar}>
         <MaterialCommunityIcons name='home-variant' size={35} color='#FA4A0C' />
         {/* <MaterialCommunityIcons name='home-variant-outline' size={35} color='#aaaaaa' /> */}
         <FontAwesome5 name='heart' size={27} color='#aaaaaa' />
@@ -87,7 +60,7 @@ export default function Home() {
         {/* <FontAwesome5 name='user-alt' size={24} color='#FA4A0C' /> */}
         <MaterialIcons name='history' size={30} color='#aaaaaa' />
       </View>
-    </View>
+    </Screen>
   )
 }
 
@@ -97,7 +70,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondary,
     paddingTop: 60,
   },
-  topContainer: {
+  pdHorizontal: {
     paddingHorizontal: 40,
   },
   header: {
@@ -114,5 +87,30 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     marginBottom: 20,
+  },
+  categoryItem: {
+    paddingHorizontal: 10,
+    marginHorizontal: 10,
+  },
+  activeCategory: {
+    borderBottomWidth: 3,
+    borderColor: colors.coral,
+    paddingBottom: 10,
+  },
+  category: {
+    marginLeft: 50,
+    marginBottom: 20,
+  },
+  carouselText: {
+    display: 'flex',
+    alignItems: 'flex-end',
+  },
+  navbar: {
+    display: 'flex',
+    flexDirection: 'row',
+    paddingHorizontal: 40,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    top: -20,
   },
 })
