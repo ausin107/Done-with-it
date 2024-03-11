@@ -3,10 +3,10 @@ import React from 'react'
 import { colors } from '../configs/colors'
 import AppText from './AppText'
 
-export default function ListItem({ data, image }) {
+export default function ListItem({ data }) {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={image} />
+      <Image style={styles.image} source={data.image} />
       <AppText style={styles.title} fontSize={20}>
         {data.name}
       </AppText>
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     marginRight: 40,
     marginTop: 40,
+    elevation: 5,
   },
   image: {
     width: 300,
