@@ -7,12 +7,14 @@ export default function ReturnBar({ name }) {
   return (
     <View style={styles.container}>
       <Feather name='chevron-left' size={30} color='black' />
-      <View>
-        <AppText fontSize={18} fontWeight='600'>
-          {name}
-        </AppText>
-      </View>
-      <Feather name='chevron-left' size={30} color='black' disabled style={{ opacity: 0 }} />
+      {name && (
+        <View>
+          <AppText fontSize={18} fontWeight='600'>
+            {name}
+          </AppText>
+        </View>
+      )}
+      <Feather name='heart' size={25} color='black' disabled style={name && { opacity: 0 }} />
     </View>
   )
 }
@@ -26,6 +28,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: Dimensions.get('screen').width,
     position: 'absolute',
-    top: Constants.statusBarHeight,
+    top: Constants.statusBarHeight + 15,
   },
 })

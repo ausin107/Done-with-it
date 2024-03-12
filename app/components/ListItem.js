@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   image: {
-    width: 300,
-    height: 300,
+    width: 170,
+    height: 170,
     position: 'absolute',
     top: -40,
   },
